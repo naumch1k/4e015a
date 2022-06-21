@@ -42,7 +42,7 @@ function Pagination({
           // Do not remove the aria-label below, it is used for Hatchways automation.
           aria-label="Goto previous page"
           onClick={onPrevious}
-          disabled={false} // change this line to disable a button.
+          disabled={paginationRange.length == 1}
         >
           <ChevronLeftIcon />
         </button>
@@ -84,7 +84,7 @@ function Pagination({
           // Do not remove the aria-label below, it is used for Hatchways automation.
           aria-label="Goto next page"
           onClick={onNext}
-          disabled={false} // change this line to disable a button.
+          disabled={paginationRange.length == 1}
         >
           <ChevronRightIcon />
         </button>
