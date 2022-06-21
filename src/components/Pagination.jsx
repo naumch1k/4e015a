@@ -96,7 +96,7 @@ function Pagination({
         aria-label="Select page size"
         value={pageSize}
         onChange={(e) => {
-          onPageSizeOptionChange(e.target.value);
+          onPageSizeOptionChange(Number(e.target.value));
         }}
       >
         {pageSizeOptions.map((size) => (
