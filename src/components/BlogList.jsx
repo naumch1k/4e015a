@@ -8,7 +8,8 @@ const BLOG_LIST_DEFAULT_SETTINGS = { currentPage: 1, pageSize: 15 };
 
 function BlogList() {
   const [blogListSettings, setBlogListSettings] = useState(BLOG_LIST_DEFAULT_SETTINGS);
-  const currentPaginationData = blogs.posts.slice(0, blogListSettings.pageSize);
+  const numberOfPostRendered = (blogListSettings.currentPage - 1) * blogListSettings.pageSize;
+  const currentPaginationData = blogs.posts.slice(numberOfPostRendered, numberOfPostRendered + blogListSettings.pageSize);
 
   const updateRowsPerPage = numberOfRows => {
     setBlogListSettings({
@@ -16,7 +17,12 @@ function BlogList() {
       pageSize: numberOfRows
     });
   };
-  const updatePage = () => {};
+  const updatePage = pageNumber => {
+    setBlogListSettings({
+      currentPage: pageNumber,
+      pageSize: blogListSettings.pageSize
+    });
+  };
 
   return (
     <div>
