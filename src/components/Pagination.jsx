@@ -84,7 +84,7 @@ function Pagination({
           // Do not remove the aria-label below, it is used for Hatchways automation.
           aria-label="Goto next page"
           onClick={onNext}
-          disabled={paginationRange.length == 1 || currentPage == paginationRange.length}
+          disabled={paginationRange.length == 1 || currentPage == Math.ceil(totalCount / pageSize)}
         >
           <ChevronRightIcon />
         </button>
