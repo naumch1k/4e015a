@@ -8,3 +8,9 @@ Once I get an API response, I will check if there is actual data to display. Sup
 That may happen that API returns an error. If so, I want to let the user know that. 
 
 For the cases when awaiting an API response, got no data, or API returned an error, I will probably want to hide pagination. So conditional for that also.
+
+### Part of this application uses the package nanoid to generate keys. What issue would this cause for generating keys in React?
+
+Per package docs, nanoid function will generate new keys on each render which is against the purpose for keys in React. Keys must be unique and stable for React to identify which items have changed, are added, or are removed. 
+
+Using nanoid to generate keys can negatively impact performance and cause issues with the component state.
