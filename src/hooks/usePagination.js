@@ -3,7 +3,7 @@ import { useMemo } from "react";
 export const DOTS = "...";
 
 const range = (start, end) => {
-  let length = end - start + 1;
+  const length = end - start + 1;
   // Create an array of given length and populate it with numbers from start to end
   return [...Array(length)].map((element, index) => element = start + index);
 };
@@ -38,21 +38,21 @@ function usePagination({
 
     // CASE 2: No left dots, but rights dots
     if (!shouldInsertLeftDots && shouldInsertRightDots) {
-      let leftRange = range(firstPage, innerRangeCount);
+      const leftRange = range(firstPage, innerRangeCount);
 
       return [...leftRange, DOTS, lastPage];
     }
 
     // CASE 3: No right dots, but left dots
     if (shouldInsertLeftDots && !shouldInsertRightDots) {
-      let rightRange = range(pageCount - innerRangeCount + 1, lastPage);
+      const rightRange = range(pageCount - innerRangeCount + 1, lastPage);
 
       return [firstPage, DOTS, ...rightRange];
     }
      
     // CASE 4: Both left and right dots
     if (shouldInsertLeftDots && shouldInsertRightDots) {
-      let middleRange = range(leftSibling, rightSibling);
+      const middleRange = range(leftSibling, rightSibling);
 
       return [firstPage, DOTS, ...middleRange, DOTS, pageCount];
     }
